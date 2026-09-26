@@ -1,0 +1,1258 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Certificates</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* =========================================
+   GLOBAL
+========================================= */
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+
+      margin: 0;
+
+      min-height: 100vh;
+
+      padding: 25px 30px 60px;
+
+      font-family: 'Segoe UI', Arial, sans-serif;
+
+      background-color: #f8fafc;
+
+      background-image:
+
+        linear-gradient(to right,
+          rgba(0, 0, 0, 0.035) 1px,
+          transparent 1px),
+
+        linear-gradient(to bottom,
+          rgba(0, 0, 0, 0.035) 1px,
+          transparent 1px);
+
+      background-size: 30px 30px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      overflow-x: hidden;
+    }
+
+
+    /* =========================================
+   BACK HOME
+========================================= */
+
+    .back-home {
+
+      align-self: flex-start;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      gap: 9px;
+
+      padding: 10px 16px;
+
+      text-decoration: none;
+
+      color: #007bff;
+
+      font-weight: 700;
+
+      border-radius: 10px;
+
+      background: rgba(255, 255, 255, 0.8);
+
+      border: 1px solid rgba(0, 123, 255, 0.12);
+
+      box-shadow:
+        0 5px 18px rgba(0, 0, 0, 0.05);
+
+      transition: all 0.3s ease;
+    }
+
+    .back-home i {
+
+      transition:
+        transform 0.3s ease;
+    }
+
+    .back-home:hover {
+
+      color: #0056b3;
+
+      transform:
+        translateX(-5px);
+
+      box-shadow:
+        0 8px 25px rgba(0, 123, 255, 0.15);
+    }
+
+    .back-home:hover i {
+
+      transform:
+        translateX(-4px);
+    }
+
+
+    /* =========================================
+   PAGE TITLE
+========================================= */
+
+    .page-title {
+
+      text-align: center;
+
+      margin: 25px 0 40px;
+
+      animation:
+        titleDrop 0.8s ease forwards;
+    }
+
+    .page-title h1 {
+
+      margin: 0;
+
+      font-size: 36px;
+
+      font-weight: 800;
+
+      color: #111827;
+    }
+
+    .page-title h1 span {
+
+      color: #007bff;
+    }
+
+    .page-title p {
+
+      margin-top: 10px;
+
+      color: #64748b;
+
+      font-size: 15px;
+    }
+
+    .page-title::after {
+
+      content: "";
+
+      display: block;
+
+      width: 65px;
+
+      height: 4px;
+
+      margin: 15px auto 0;
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(90deg,
+          #007bff,
+          #00b7ff);
+
+      box-shadow:
+        0 0 14px rgba(0, 123, 255, 0.4);
+    }
+
+
+    @keyframes titleDrop {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(-25px);
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0);
+      }
+    }
+
+
+    /* =========================================
+   CERTIFICATE CONTAINER
+========================================= */
+
+    .certificates-container {
+
+      width: 100%;
+
+      max-width: 650px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 28px;
+    }
+
+
+    /* =========================================
+   CERTIFICATE CARD
+========================================= */
+
+    .certificate {
+
+      position: relative;
+
+      width: 100%;
+
+      min-height: 350px;
+
+      border-radius: 22px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(145deg,
+          rgba(255, 255, 255, 0.96),
+          rgba(248, 250, 252, 0.92));
+
+      border:
+        1px solid rgba(0, 123, 255, 0.12);
+
+      box-shadow:
+        0 12px 35px rgba(15, 23, 42, 0.08);
+
+      opacity: 0;
+
+      transform:
+        translateY(60px) scale(0.96);
+
+      transition:
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.4s ease,
+        border-color 0.4s ease;
+    }
+
+
+    /* Scroll animation */
+
+    .certificate.show {
+
+      opacity: 1;
+
+      transform:
+        translateY(0) scale(1);
+    }
+
+
+    /* Hover */
+
+    .certificate:hover {
+
+      transform:
+        translateY(-7px);
+
+      border-color:
+        rgba(0, 123, 255, 0.3);
+
+      box-shadow:
+        0 20px 45px rgba(0, 123, 255, 0.14);
+    }
+
+
+    /* Top glowing line */
+
+    .certificate::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: 0;
+
+      width: 100%;
+
+      height: 4px;
+
+      background:
+        linear-gradient(90deg,
+          #007bff,
+          #00c6ff);
+
+      transform:
+        scaleX(0);
+
+      transform-origin:
+        left;
+
+      transition:
+        transform 0.4s ease;
+
+      z-index: 5;
+    }
+
+    .certificate:hover::before {
+
+      transform:
+        scaleX(1);
+    }
+
+
+    /* =========================================
+   CERTIFICATE HEADER
+========================================= */
+
+    .certificate-header {
+
+      padding:
+        18px 22px 12px;
+
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+    }
+
+    .certificate-number {
+
+      font-size: 12px;
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+
+      color: #007bff;
+    }
+
+    .certificate-icon {
+
+      width: 35px;
+
+      height: 35px;
+
+      border-radius: 10px;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: white;
+
+      background:
+        linear-gradient(135deg,
+          #007bff,
+          #0056b3);
+
+      box-shadow:
+        0 5px 14px rgba(0, 123, 255, 0.25);
+    }
+
+
+    /* =========================================
+   BUTTONS
+========================================= */
+
+    .buttons {
+
+      display: flex;
+
+      gap: 10px;
+
+      padding:
+        0 20px 15px;
+    }
+
+    .buttons button {
+
+      flex: 1;
+
+      position: relative;
+
+      border: none;
+
+      padding: 12px 15px;
+
+      border-radius: 10px;
+
+      background: #eef4fb;
+
+      color: #475569;
+
+      font-size: 13px;
+
+      font-weight: 700;
+
+      cursor: pointer;
+
+      overflow: hidden;
+
+      transition:
+        all 0.3s ease;
+    }
+
+
+    /* Button shine */
+
+    .buttons button::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+
+      left: -100%;
+
+      width: 100%;
+
+      height: 100%;
+
+      background:
+        linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, 0.35),
+          transparent);
+
+      transition:
+        left 0.5s ease;
+    }
+
+    .buttons button:hover::before {
+
+      left: 100%;
+    }
+
+
+    /* Hover */
+
+    .buttons button:hover {
+
+      color: #007bff;
+
+      background: #e3efff;
+
+      transform:
+        translateY(-2px);
+    }
+
+
+    /* Active */
+
+    .buttons button.active {
+
+      color: white;
+
+      background:
+        linear-gradient(135deg,
+          #007bff,
+          #0056b3);
+
+      box-shadow:
+        0 6px 15px rgba(0, 123, 255, 0.25);
+    }
+
+
+    /* =========================================
+   CONTENT
+========================================= */
+
+    .content {
+
+      min-height: 245px;
+
+      margin:
+        0 15px 15px;
+
+      padding: 25px;
+
+      border-radius: 17px;
+
+      text-align: center;
+
+      background:
+        linear-gradient(145deg,
+          #f8fbff,
+          #ffffff);
+
+      box-shadow:
+        inset 0 0 20px rgba(0, 0, 0, 0.035);
+
+      opacity: 1;
+
+      transform:
+        translateY(0) scale(1);
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+    }
+
+
+    /* Content leaving */
+
+    .content.fade-out {
+
+      opacity: 0;
+
+      transform:
+        translateY(12px) scale(0.98);
+    }
+
+
+    /* =========================================
+   CERTIFICATE IMAGE
+========================================= */
+
+    .content img {
+
+      display: block;
+
+      max-width: 100%;
+
+      max-height: 500px;
+
+      margin: auto;
+
+      object-fit: contain;
+
+      border-radius: 12px;
+
+      box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.12);
+
+      transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+    }
+
+    .content img:hover {
+
+      transform:
+        scale(1.025);
+
+      box-shadow:
+        0 15px 35px rgba(0, 123, 255, 0.15);
+    }
+
+
+    /* =========================================
+   DESCRIPTION
+========================================= */
+
+    .content h3 {
+
+      margin:
+        0 0 15px;
+
+      font-size: 21px;
+
+      font-weight: 800;
+
+      background:
+        linear-gradient(90deg,
+          #007bff,
+          #0056b3);
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color:
+        transparent;
+    }
+
+    .content p {
+
+      margin: 0;
+
+      line-height: 1.7;
+
+      font-size: 14px;
+
+      color: #475569;
+
+      text-align: left;
+    }
+
+
+    /* =========================================
+   DEFAULT MESSAGE
+========================================= */
+
+    .default-message {
+
+      min-height: 190px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+    .default-message i {
+
+      font-size: 42px;
+
+      color: #007bff;
+
+      margin-bottom: 15px;
+
+      animation:
+        certificateFloat 2s ease-in-out infinite;
+    }
+
+    .default-message p {
+
+      text-align: center;
+
+      color: #64748b;
+    }
+
+
+    @keyframes certificateFloat {
+
+      0%,
+      100% {
+
+        transform:
+          translateY(0);
+      }
+
+      50% {
+
+        transform:
+          translateY(-7px);
+      }
+    }
+
+
+    /* =========================================
+   MOBILE
+========================================= */
+
+    @media (max-width: 600px) {
+
+      body {
+
+        padding:
+          20px 15px 40px;
+      }
+
+      .page-title {
+
+        margin:
+          25px 0 30px;
+      }
+
+      .page-title h1 {
+
+        font-size: 29px;
+      }
+
+      .page-title p {
+
+        font-size: 13px;
+      }
+
+      .certificate {
+
+        min-height: 330px;
+
+        border-radius: 18px;
+      }
+
+      .certificate-header {
+
+        padding:
+          15px 16px 10px;
+      }
+
+      .buttons {
+
+        padding:
+          0 14px 12px;
+
+        gap: 8px;
+      }
+
+      .buttons button {
+
+        padding:
+          11px 8px;
+
+        font-size: 11px;
+      }
+
+      .content {
+
+        margin:
+          0 10px 10px;
+
+        padding: 18px;
+
+        min-height: 220px;
+      }
+
+      .content h3 {
+
+        font-size: 18px;
+      }
+
+      .content p {
+
+        font-size: 13px;
+
+        line-height: 1.6;
+      }
+
+    }
+
+
+    /* =========================================
+   PDF CERTIFICATE
+========================================= */
+
+    .pdf-message {
+      text-align: center;
+      padding: 25px 15px;
+    }
+
+    .pdf-message>i {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .pdf-message h3 {
+      margin: 8px 0;
+    }
+
+    .pdf-message p {
+      margin: 8px 0 20px;
+      opacity: 0.8;
+    }
+
+    .open-pdf {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s ease;
+    }
+
+    .open-pdf:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================================
+     BACK HOME
+========================================= -->
+
+  <a href="index.html" class="back-home">
+
+    <i class="fas fa-arrow-left"></i>
+
+    Back to Home
+
+  </a>
+
+
+  <!-- =========================================
+     TITLE
+========================================= -->
+
+  <div class="page-title">
+
+    <h1>
+      My <span>Certificates</span>
+    </h1>
+
+    <p>
+      Certifications, achievements and learning experiences
+    </p>
+
+  </div>
+
+
+  <!-- =========================================
+     CERTIFICATES
+========================================= -->
+
+  <div class="certificates-container">
+
+
+    <!-- CERTIFICATE 1 -->
+
+    <div class="certificate">
+
+      <div class="certificate-header">
+
+        <div class="certificate-number">
+          Front-End Technologies
+        </div>
+
+        <div class="certificate-icon">
+          <i class="fas fa-award"></i>
+        </div>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button class="leftBtn">
+          <i class="fas fa-certificate"></i>
+          &nbsp; Show Certificate
+        </button>
+
+        <button class="rightBtn">
+          <i class="fas fa-align-left"></i>
+          &nbsp; Description
+        </button>
+
+      </div>
+
+
+      <div class="content">
+
+        <div class="default-message">
+
+          <i class="fas fa-certificate"></i>
+
+          <p>
+            Choose an option above to view
+            the certificate
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CERTIFICATE 2 -->
+
+    <div class="certificate">
+
+      <div class="certificate-header">
+
+        <div class="certificate-number">
+          React JS
+        </div>
+
+        <div class="certificate-icon">
+          <i class="fas fa-award"></i>
+        </div>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button class="leftBtn">
+          <i class="fas fa-certificate"></i>
+          &nbsp; Show Certificate
+        </button>
+
+        <button class="rightBtn">
+          <i class="fas fa-align-left"></i>
+          &nbsp; Description
+        </button>
+
+      </div>
+
+
+      <div class="content">
+
+        <div class="default-message">
+
+          <i class="fas fa-certificate"></i>
+
+          <p>
+            Choose an option above to view
+            the certificate
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CERTIFICATE 3 -->
+
+    <div class="certificate">
+
+      <div class="certificate-header">
+
+        <div class="certificate-number">
+          Ethical Hacking
+        </div>
+
+        <div class="certificate-icon">
+          <i class="fas fa-award"></i>
+        </div>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button class="leftBtn">
+          <i class="fas fa-certificate"></i>
+          &nbsp; Show Certificate
+        </button>
+
+        <button class="rightBtn">
+          <i class="fas fa-align-left"></i>
+          &nbsp; Description
+        </button>
+
+      </div>
+
+
+      <div class="content">
+
+        <div class="default-message">
+
+          <i class="fas fa-certificate"></i>
+
+          <p>
+            Choose an option above to view
+            the certificate
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CERTIFICATE 4 -->
+
+    <div class="certificate">
+
+      <div class="certificate-header">
+
+        <div class="certificate-number">
+          Cloud Computing
+        </div>
+
+        <div class="certificate-icon">
+          <i class="fas fa-award"></i>
+        </div>
+
+      </div>
+
+
+      <div class="buttons">
+
+        <button class="leftBtn">
+          <i class="fas fa-certificate"></i>
+          &nbsp; Show Certificate
+        </button>
+
+        <button class="rightBtn">
+          <i class="fas fa-align-left"></i>
+          &nbsp; Description
+        </button>
+
+      </div>
+
+
+      <div class="content">
+
+        <div class="default-message">
+
+          <i class="fas fa-certificate"></i>
+
+          <p>
+            Choose an option above to view
+            the certificate
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+  <script>
+
+    /* =========================================
+       DESCRIPTIONS
+    ========================================= */
+
+    const descriptions = [
+
+      `
+  <h3>Internship</h3>
+
+<p>
+  Frontend Technologies – Naan Mudhalvan
+
+  Successfully completed the Frontend Technologies course through
+  Naan Mudhalvan. Gained practical knowledge in frontend development,
+  including HTML, CSS, JavaScript, and responsive web design.
+  Built a strong foundation in creating interactive and user-friendly
+  web applications.
+</p>  `,
+
+
+      `
+  <h3>React JS</h3>
+
+  <p>
+ 
+
+  Successfully completed a React JS course and gained practical knowledge of building modern, interactive, and reusable user interfaces. Learned React components, props, state management, hooks, event handling, and API integration to develop responsive web applications.
+
+  </p>
+  `,
+
+
+      `
+  <h3>Ethical Hacking</h3>
+
+  <p>
+  NPTEL (SWAYAM)
+
+  Successfully completed the 12-week NPTEL Ethical Hacking course conducted from July to October 2025. Gained a foundational understanding of ethical hacking and cybersecurity concepts, strengthening knowledge of security and responsible security practices.  </p>
+  `,
+
+
+      `
+  <h3>Cloud Computing Basics</h3>
+
+  <p>
+  Cloud Computing Basics
+
+  Completed a foundational course in Cloud Computing,
+  learning key concepts such as cloud architecture,
+  virtualization, service and deployment models, cloud
+  storage, networking, scalability, and security. This
+  course provided a strong understanding of modern cloud
+  technologies and their real-world applications.
+  </p>
+  `
+
+    ];
+
+
+    /* =========================================
+       BUTTON + CONTENT LOGIC
+    ========================================= */
+
+    document
+      .querySelectorAll(".certificate")
+      .forEach((card, index) => {
+
+
+        const leftBtn =
+          card.querySelector(".leftBtn");
+
+        const rightBtn =
+          card.querySelector(".rightBtn");
+
+        const content =
+          card.querySelector(".content");
+
+
+        function updateContent(newHtml, activeButton) {
+
+
+          /* Fade out */
+
+          content.classList.add("fade-out");
+
+
+          setTimeout(() => {
+
+
+            /* Change content */
+
+            content.innerHTML = newHtml;
+
+
+            /* Fade in */
+
+            content.classList.remove("fade-out");
+
+
+          }, 300);
+
+
+          /* Active button */
+
+          card
+            .querySelectorAll("button")
+            .forEach(button => {
+
+              button.classList.remove("active");
+
+            });
+
+
+          activeButton.classList.add("active");
+
+        }
+
+
+        /* Certificate PDF */
+
+        const certificatePDFs = [
+          "NM_Certificate.pdf",
+          "React Js",
+          "Ethical Hacking.pdf",
+          "Cloud Computing.pdf",
+          "Spring REST"
+        ];
+
+        leftBtn.addEventListener("click", () => {
+
+          const pdfName = certificatePDFs[index];
+
+          updateContent(
+
+            `
+      <div class="pdf-message">
+        <i class="fas fa-file-pdf"></i>
+
+        <h3>Certificate ${index + 1}</h3>
+
+        <p>
+          Your certificate is available as a PDF.
+        </p>
+
+        <a
+          href="${pdfName}"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="open-pdf">
+          <i class="fas fa-external-link-alt"></i>
+          Open Certificate
+        </a>
+      </div>
+      `,
+
+            leftBtn
+
+          );
+
+        });
+
+
+        /* Description */
+
+        rightBtn.addEventListener("click", () => {
+
+          updateContent(
+
+            descriptions[index],
+
+            rightBtn
+
+          );
+
+        });
+
+      });
+
+
+    /* =========================================
+       SCROLL ANIMATION
+    ========================================= */
+
+    const observer =
+      new IntersectionObserver(
+
+        (entries) => {
+
+          entries.forEach((entry, index) => {
+
+            if (entry.isIntersecting) {
+
+              setTimeout(() => {
+
+                entry.target
+                  .classList
+                  .add("show");
+
+              }, index * 120);
+
+              observer.unobserve(
+                entry.target
+              );
+
+            }
+
+          });
+
+        },
+
+        {
+          threshold: 0.15
+        }
+
+      );
+
+
+    document
+      .querySelectorAll(".certificate")
+      .forEach(card => {
+
+        observer.observe(card);
+
+      });
+
+  </script>
+
+</body>
+
+</html>
+```

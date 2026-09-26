@@ -1,0 +1,1093 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>AKIL | Bio</title>
+  <link rel="icon" type="image/png" href="Free Stock Photos, PNGs, Templates & Mockups _ rawpixel.jpg">
+
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      font-family: 'Inter', sans-serif;
+
+      background:
+        radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.18), transparent 30%),
+        radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.18), transparent 30%),
+        #080b18;
+
+      overflow-x: hidden;
+      overflow-y: auto;
+      position: relative;
+    }
+
+
+    /* =========================
+       ANIMATED BACKGROUND
+    ========================= */
+
+    body::before {
+
+      content: "";
+
+      position: fixed;
+
+      width: 400px;
+      height: 400px;
+
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #6366f1,
+        #a855f7
+      );
+
+      filter: blur(120px);
+
+      opacity: 0.18;
+
+      top: -150px;
+      left: -100px;
+
+      animation: floatBlob 8s ease-in-out infinite alternate;
+
+      z-index: -1;
+    }
+
+
+    body::after {
+
+      content: "";
+
+      position: fixed;
+
+      width: 350px;
+      height: 350px;
+
+      border-radius: 50%;
+
+      background: linear-gradient(
+        135deg,
+        #06b6d4,
+        #3b82f6
+      );
+
+      filter: blur(120px);
+
+      opacity: 0.15;
+
+      bottom: -120px;
+      right: -100px;
+
+      animation: floatBlob2 10s ease-in-out infinite alternate;
+
+      z-index: -1;
+    }
+
+
+    @keyframes floatBlob {
+
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(80px, 50px);
+      }
+    }
+
+
+    @keyframes floatBlob2 {
+
+      from {
+        transform: translate(0, 0);
+      }
+
+      to {
+        transform: translate(-70px, -50px);
+      }
+    }
+
+
+    /* =========================
+       GRID BACKGROUND
+    ========================= */
+
+    .grid {
+
+      position: fixed;
+
+      inset: 0;
+
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,0.025) 1px,
+          transparent 1px
+        );
+
+      background-size: 35px 35px;
+
+      pointer-events: none;
+
+      z-index: -1;
+    }
+
+
+    /* =========================
+       BACK HOME
+    ========================= */
+
+    .back-home {
+
+      position: fixed;
+
+      top: 25px;
+      left: 30px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      text-decoration: none;
+
+      color: #c7d2fe;
+
+      font-size: 15px;
+
+      font-weight: 600;
+
+      padding: 11px 18px;
+
+      border-radius: 30px;
+
+      background: rgba(255,255,255,0.06);
+
+      border: 1px solid rgba(255,255,255,0.1);
+
+      backdrop-filter: blur(10px);
+
+      transition: all 0.3s ease;
+
+      z-index: 10;
+    }
+
+
+    .back-home i {
+
+      transition: transform 0.3s ease;
+    }
+
+
+    .back-home:hover {
+
+      color: white;
+
+      background: rgba(99,102,241,0.2);
+
+      border-color: rgba(129,140,248,0.5);
+
+      box-shadow:
+        0 0 20px rgba(99,102,241,0.25);
+
+      transform: translateY(-3px);
+    }
+
+
+    .back-home:hover i {
+
+      transform: translateX(-5px);
+    }
+
+
+    /* =========================
+       CARD CONTAINER
+    ========================= */
+
+    .flip-card {
+
+      width: 360px;
+      height: 540px;
+
+      perspective: 1500px;
+
+      cursor: pointer;
+
+      animation: cardAppear 1s ease;
+    }
+
+
+    @keyframes cardAppear {
+
+      from {
+
+        opacity: 0;
+
+        transform:
+          translateY(40px)
+          scale(0.9);
+      }
+
+      to {
+
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+
+    /* =========================
+       INNER CARD
+    ========================= */
+
+    .flip-card-inner {
+
+      position: relative;
+
+      width: 100%;
+      height: 100%;
+
+      transition: transform 0.55s ease;
+
+      transform-style: preserve-3d;
+    }
+
+
+    .flip-card:hover {
+      transform: translateY(-8px);
+      transition: transform 0.3s ease;
+    }
+
+    .flip-card-inner.flipped {
+      transform: rotateY(180deg);
+    }
+
+
+    /* =========================
+       COMMON CARD STYLE
+    ========================= */
+
+    .flip-card-front,
+    .flip-card-back {
+
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+
+      border-radius: 28px;
+
+      backface-visibility: hidden;
+
+      overflow: hidden;
+
+      border: 1px solid rgba(255,255,255,0.12);
+
+      box-shadow:
+        0 30px 70px rgba(0,0,0,0.45),
+        inset 0 1px 1px rgba(255,255,255,0.08);
+    }
+
+
+    /* =========================
+       FRONT
+    ========================= */
+
+    .flip-card-front {
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: center;
+
+      align-items: center;
+
+      text-align: center;
+
+      padding: 40px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(79,70,229,0.95),
+          rgba(124,58,237,0.95),
+          rgba(37,99,235,0.95)
+        );
+
+      position: absolute;
+    }
+
+
+    /* Animated shine */
+
+    .flip-card-front::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 200px;
+      height: 600px;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.18),
+        transparent
+      );
+
+      transform: rotate(25deg);
+
+      left: -250px;
+
+      animation: shine 4s infinite;
+    }
+
+
+    @keyframes shine {
+
+      0% {
+        left: -250px;
+      }
+
+      50% {
+        left: 450px;
+      }
+
+      100% {
+        left: 450px;
+      }
+    }
+
+
+    /* =========================
+       PROFILE ICON
+    ========================= */
+
+    .profile-icon {
+
+      width: 125px;
+      height: 125px;
+
+      border-radius: 50%;
+
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+
+      font-size: 55px;
+
+      color: white;
+
+      background:
+        rgba(255,255,255,0.12);
+
+      border:
+        2px solid rgba(255,255,255,0.35);
+
+      box-shadow:
+        0 0 0 10px rgba(255,255,255,0.04),
+        0 0 40px rgba(255,255,255,0.15);
+
+      margin-bottom: 30px;
+
+      animation: pulse 3s infinite;
+    }
+
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.05);
+      }
+    }
+
+
+    .front-title {
+
+      font-size: 30px;
+
+      font-weight: 800;
+
+      margin-bottom: 12px;
+
+      letter-spacing: -0.5px;
+    }
+
+
+    .front-subtitle {
+
+      font-size: 14px;
+
+      color: rgba(255,255,255,0.75);
+
+      margin-bottom: 35px;
+    }
+
+
+    /* =========================
+       CLICK BUTTON
+    ========================= */
+
+    .click-button {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 13px 22px;
+
+      border-radius: 30px;
+
+      background:
+        rgba(255,255,255,0.13);
+
+      border:
+        1px solid rgba(255,255,255,0.25);
+
+      font-size: 14px;
+
+      font-weight: 600;
+
+      transition: all 0.3s ease;
+    }
+
+
+    .click-button i {
+
+      animation: arrowMove 1.5s infinite;
+    }
+
+
+    @keyframes arrowMove {
+
+      0%,
+      100% {
+        transform: translateX(0);
+      }
+
+      50% {
+        transform: translateX(5px);
+      }
+    }
+
+
+    .flip-card-front:hover .click-button {
+
+      background: rgba(255,255,255,0.2);
+
+      transform: scale(1.05);
+    }
+
+
+    /* =========================
+       BACK
+    ========================= */
+
+    .flip-card-back {
+
+      transform: rotateY(180deg);
+
+      padding: 35px 30px;
+
+      color: white;
+
+      background:
+        linear-gradient(
+          145deg,
+          #111827,
+          #172033,
+          #0f172a
+        );
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-start;
+
+      align-items: stretch;
+      overflow-y: auto;
+      overflow-x: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(129,140,248,0.5) transparent;
+    }
+
+    .flip-card-back::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .flip-card-back::-webkit-scrollbar-thumb {
+      background: rgba(129,140,248,0.5);
+      border-radius: 10px;
+    }
+
+
+    /* Gradient top line */
+
+    .flip-card-back::before {
+
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 5px;
+
+      background:
+        linear-gradient(
+          90deg,
+          #6366f1,
+          #a855f7,
+          #06b6d4
+        );
+    }
+
+
+    .profile-heading {
+
+      text-align: center;
+
+      margin-bottom: 25px;
+    }
+
+
+    .profile-heading h1 {
+
+      font-size: 28px;
+
+      font-weight: 800;
+
+      background:
+        linear-gradient(
+          90deg,
+          #818cf8,
+          #c084fc,
+          #67e8f9
+        );
+
+      -webkit-background-clip: text;
+
+      -webkit-text-fill-color: transparent;
+
+      margin-bottom: 7px;
+    }
+
+
+    .profile-heading span {
+
+      font-size: 12px;
+
+      color: #94a3b8;
+
+      letter-spacing: 2px;
+
+      text-transform: uppercase;
+    }
+
+
+    /* =========================
+       DETAILS
+    ========================= */
+
+    .details {
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 12px;
+    }
+
+
+    .detail {
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 13px;
+
+      padding: 11px;
+
+      border-radius: 13px;
+
+      background:
+        rgba(255,255,255,0.035);
+
+      border:
+        1px solid rgba(255,255,255,0.06);
+
+      transition: all 0.3s ease;
+    }
+
+
+    .detail:hover {
+
+      background:
+        rgba(99,102,241,0.12);
+
+      border-color:
+        rgba(129,140,248,0.25);
+
+      transform: translateX(5px);
+    }
+
+
+    .detail-icon {
+
+      min-width: 35px;
+      height: 35px;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      border-radius: 10px;
+
+      color: #a5b4fc;
+
+      background:
+        rgba(99,102,241,0.12);
+    }
+
+
+    .detail-content {
+
+      display: flex;
+
+      flex-direction: column;
+
+      min-width: 0;
+    }
+
+
+    .detail-label {
+
+      font-size: 10px;
+
+      color: #64748b;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1px;
+
+      margin-bottom: 3px;
+    }
+
+
+    .detail-value {
+
+      font-size: 12px;
+
+      color: #e2e8f0;
+
+      font-weight: 500;
+
+      line-height: 1.4;
+
+      word-break: break-word;
+    }
+
+
+    /* =========================
+       FLIP HINT
+    ========================= */
+
+    .flip-hint {
+
+      margin-top: auto;
+
+      text-align: center;
+
+      color: #64748b;
+
+      font-size: 11px;
+    }
+
+
+    .flip-hint i {
+
+      margin-right: 5px;
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 500px) {
+
+      body {
+        padding: 85px 15px 30px;
+        min-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .back-home {
+        top: 20px;
+        left: 20px;
+      }
+
+      .flip-card {
+        width: 100%;
+        max-width: 350px;
+        height: 560px;
+      }
+
+      .flip-card-inner {
+        height: 560px;
+      }
+
+      .flip-card-front,
+      .flip-card-back {
+        height: 560px;
+      }
+
+      .flip-card-back {
+        padding: 28px 20px;
+      }
+
+      .profile-heading {
+        margin-bottom: 18px;
+      }
+
+      .profile-heading h1 {
+        font-size: 25px;
+      }
+
+      .details {
+        gap: 9px;
+      }
+
+      .detail {
+        padding: 9px;
+      }
+
+      .detail-value {
+        font-size: 11px;
+      }
+
+      .flip-hint {
+        padding-top: 12px;
+      }
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+  <div class="grid"></div>
+
+
+  <!-- Back Home -->
+
+  <a href="index.html" class="back-home">
+
+    <i class="fas fa-arrow-left"></i>
+
+    Back to Home
+
+  </a>
+
+
+  <!-- Flip Card -->
+
+  <div class="flip-card" onclick="flipCard(this)">
+
+    <div class="flip-card-inner">
+
+
+      <!-- ================= FRONT ================= -->
+
+      <div class="flip-card-front">
+
+        <div class="profile-icon">
+
+          <i class="fa-solid fa-user"></i>
+
+        </div>
+
+
+        <div class="front-title">
+
+          Hello, I'm AKIL 👋
+
+        </div>
+
+
+        <div class="front-subtitle">
+
+          Computer Science Engineer
+
+        </div>
+
+
+        <div class="click-button">
+
+          <span>View My Bio</span>
+
+          <i class="fas fa-arrow-right"></i>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ================= BACK ================= -->
+
+      <div class="flip-card-back">
+
+
+        <div class="profile-heading">
+
+          <h1>I’m AKIL</h1>
+
+          <span>About Me</span>
+
+        </div>
+
+
+        <div class="details">
+
+
+          <!-- DOB -->
+
+          <div class="detail">
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-cake-candles"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <span class="detail-label">
+                Born On
+              </span>
+
+              <span class="detail-value">
+                31 October 2005
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Degree -->
+
+          <div class="detail">
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-graduation-cap"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <span class="detail-label">
+                Degree
+              </span>
+
+              <span class="detail-value">
+                B.E – Computer Science Engineering
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- College -->
+
+          <div class="detail">
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-building-columns"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <span class="detail-label">
+                College
+              </span>
+
+              <span class="detail-value">
+                Anna University Regional Campus, Madurai
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Interest -->
+
+          <div class="detail">
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-code"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <span class="detail-label">
+                Area of Interest
+              </span>
+
+              <span class="detail-value">
+                Software & Web Development
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Hobby -->
+
+          <div class="detail">
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-gamepad"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <span class="detail-label">
+                Hobby
+              </span>
+
+              <span class="detail-value">
+                Playing Games
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <!-- Email -->
+
+          <div class="detail">
+
+            <div class="detail-icon">
+
+              <i class="fa-solid fa-envelope"></i>
+
+            </div>
+
+            <div class="detail-content">
+
+              <span class="detail-label">
+                Email
+              </span>
+
+              <span class="detail-value">
+                akil8x2005@gmail.com
+              </span>
+
+            </div>
+
+          </div>
+
+
+        </div>
+
+
+        <div class="flip-hint">
+
+          <i class="fa-solid fa-rotate"></i>
+
+          Click card to flip back
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ================= JAVASCRIPT ================= -->
+
+  <script>
+
+    function flipCard(card) {
+
+      const inner =
+        card.querySelector('.flip-card-inner');
+
+      inner.classList.toggle('flipped');
+
+    }
+
+  </script>
+
+</body>
+
+</html>

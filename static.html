@@ -1,0 +1,1250 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Projects</title>
+<link rel="icon" type="image/png" href="Free Stock Photos, PNGs, Templates & Mockups _ rawpixel.jpg">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 25px 40px 60px;
+
+  min-height: 100vh;
+
+  font-family: "Segoe UI", Arial, sans-serif;
+
+  background-color: #f8fafc;
+
+  background-image:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.035) 1px,
+      transparent 1px
+    );
+
+  background-size: 30px 30px;
+
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   BACK HOME
+========================= */
+
+.back-home {
+  display: inline-flex;
+
+  align-items: center;
+  gap: 8px;
+
+  text-decoration: none;
+
+  color: #007bff;
+
+  font-weight: 700;
+
+  padding: 10px 16px;
+
+  border-radius: 10px;
+
+  background: rgba(255,255,255,0.8);
+
+  border: 1px solid rgba(0,123,255,0.12);
+
+  box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+
+  transition: all 0.3s ease;
+}
+
+.back-home i {
+  transition: transform 0.3s ease;
+}
+
+.back-home:hover {
+  color: #0056b3;
+
+  transform: translateX(-5px);
+
+  box-shadow: 0 8px 25px rgba(0,123,255,0.15);
+}
+
+.back-home:hover i {
+  transform: translateX(-4px);
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.section-title {
+  text-align: center;
+
+  margin: 25px 0 45px;
+}
+
+.section-title h1 {
+  margin: 0;
+
+  font-size: 36px;
+
+  font-weight: 800;
+
+  color: #111827;
+}
+
+.section-title h1 span {
+  color: #007bff;
+}
+
+.section-title p {
+  margin-top: 10px;
+
+  color: #64748b;
+
+  font-size: 15px;
+}
+
+.section-title::after {
+  content: "";
+
+  display: block;
+
+  width: 70px;
+  height: 4px;
+
+  margin: 15px auto 0;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    90deg,
+    #007bff,
+    #00b7ff
+  );
+
+  box-shadow:
+    0 0 15px rgba(0,123,255,0.4);
+}
+
+
+/* =========================
+   PROJECT CONTAINER
+========================= */
+
+.projects-container {
+
+  max-width: 1150px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 28px;
+}
+
+
+/* =========================
+   PROJECT CARD
+========================= */
+
+.project-card {
+
+  position: relative;
+
+  min-height: 480px;
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.97),
+      rgba(248,250,252,0.92)
+    );
+
+  border: 1px solid rgba(0,123,255,0.12);
+
+  box-shadow:
+    0 12px 35px rgba(15,23,42,0.08);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease,
+    border-color 0.4s ease;
+
+  cursor: pointer;
+}
+
+
+/* Top glow line */
+
+.project-card::before {
+
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 4px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #007bff,
+      #00c6ff
+    );
+
+  transform: scaleX(0);
+
+  transform-origin: left;
+
+  transition: transform 0.4s ease;
+
+  z-index: 10;
+}
+
+
+/* Hover */
+
+.project-card:hover {
+
+  transform: translateY(-12px);
+
+  border-color:
+    rgba(0,123,255,0.3);
+
+  box-shadow:
+    0 22px 50px rgba(0,123,255,0.15);
+}
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+
+/* =========================
+   PROJECT HEADER
+========================= */
+
+.project-header {
+
+  padding: 18px 20px 10px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.project-number {
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  color: #007bff;
+
+  letter-spacing: 1px;
+}
+
+.project-status {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  color: #16a34a;
+}
+
+.status-dot {
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #22c55e;
+
+  box-shadow:
+    0 0 8px rgba(34,197,94,0.6);
+}
+
+
+/* =========================
+   SLIDE AREA
+========================= */
+
+.slide-area {
+
+  position: relative;
+
+  margin: 5px 15px;
+
+  height: 235px;
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eef6ff,
+      #f8fafc
+    );
+
+  box-shadow:
+    inset 0 0 20px rgba(0,0,0,0.04);
+}
+
+
+/* =========================
+   SLIDES
+========================= */
+
+.slide {
+
+  position: absolute;
+
+  inset: 0;
+
+  padding: 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateX(35px)
+    scale(0.97);
+
+  transition:
+    opacity 0.45s ease,
+    transform 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.slide.active {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateX(0)
+    scale(1);
+}
+
+
+/* =========================
+   START SLIDE
+========================= */
+
+.start-slide i {
+
+  font-size: 45px;
+
+  color: #007bff;
+
+  margin-bottom: 15px;
+
+  animation:
+    floating 2s ease-in-out infinite;
+}
+
+.start-slide h3 {
+
+  margin: 0;
+
+  font-size: 18px;
+
+  color: #1e293b;
+}
+
+.start-slide p {
+
+  font-size: 12px;
+
+  color: #64748b;
+
+  margin-top: 7px;
+}
+
+@keyframes floating {
+
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+
+/* =========================
+   PROJECT IMAGE
+========================= */
+
+.slide img {
+
+  width: 100%;
+
+  max-height: 190px;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+
+  filter:
+    drop-shadow(
+      0 8px 15px rgba(0,0,0,0.12)
+    );
+}
+
+.slide.active img:hover {
+
+  transform:
+    scale(1.04);
+
+  filter:
+    drop-shadow(
+      0 12px 22px rgba(0,123,255,0.2)
+    );
+}
+
+
+/* =========================
+   PROJECT INFO
+========================= */
+
+.project-info {
+
+  padding: 15px 20px 20px;
+
+  text-align: center;
+}
+
+.project-info h2 {
+
+  margin: 0 0 8px;
+
+  font-size: 20px;
+
+  font-weight: 800;
+
+  background:
+    linear-gradient(
+      90deg,
+      #007bff,
+      #0056b3
+    );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.project-info p {
+
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+
+  color: #64748b;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 3;
+
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   TOOLS
+========================= */
+
+.tools-title {
+
+  font-size: 13px;
+
+  font-weight: 800;
+
+  color: #007bff;
+
+  margin-bottom: 10px;
+}
+
+.tools {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: center;
+
+  gap: 7px;
+}
+
+.tool-badge {
+
+  padding: 6px 11px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #007bff,
+      #0056b3
+    );
+
+  color: white;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 10px rgba(0,123,255,0.2);
+}
+
+
+/* =========================
+   BOTTOM SECTION
+========================= */
+
+.project-footer {
+
+  padding: 0 20px 20px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* =========================
+   SLIDE DOTS
+========================= */
+
+.slide-dots {
+
+  display: flex;
+
+  gap: 6px;
+
+  justify-content: center;
+}
+
+.dot {
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #cbd5e1;
+
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+
+  width: 20px;
+
+  border-radius: 10px;
+
+  background: #007bff;
+
+  box-shadow:
+    0 0 8px rgba(0,123,255,0.4);
+}
+
+
+/* =========================
+   LIVE BUTTON
+========================= */
+
+.live-btn {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  text-decoration: none;
+
+  color: white;
+
+  background:
+    linear-gradient(
+      135deg,
+      #007bff,
+      #0056b3
+    );
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 6px 15px rgba(0,123,255,0.2);
+
+  transition: all 0.3s ease;
+}
+
+.live-btn:hover {
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 10px 22px rgba(0,123,255,0.3);
+}
+
+.live-btn i {
+  transition: transform 0.3s ease;
+}
+
+.live-btn:hover i {
+  transform:
+    translateX(3px)
+    translateY(-2px);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 950px) {
+
+  .projects-container {
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    max-width: 750px;
+  }
+}
+
+
+@media (max-width: 650px) {
+
+  body {
+
+    padding:
+      20px 15px 40px;
+  }
+
+  .section-title h1 {
+
+    font-size: 28px;
+  }
+
+  .projects-container {
+
+    grid-template-columns: 1fr;
+
+    max-width: 380px;
+  }
+
+  .project-card {
+
+    min-height: 470px;
+  }
+
+  .slide-area {
+
+    height: 230px;
+  }
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     BACK HOME
+========================= -->
+
+<a href="index.html" class="back-home">
+
+  <i class="fas fa-arrow-left"></i>
+
+  Back to Home
+
+</a>
+
+
+<!-- =========================
+     TITLE
+========================= -->
+
+<div class="section-title">
+
+  <h1>
+    My <span>Projects</span>
+  </h1>
+
+  <p>
+    Some of the projects I have built while learning and developing my skills
+  </p>
+
+</div>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<div class="projects-container">
+
+
+  <!-- =====================
+       PROJECT 1
+  ====================== -->
+
+  <div class="project-card"
+       onclick="nextSlide(0)">
+
+    <div class="project-header">
+
+      <div class="project-number">
+        PROJECT 01
+      </div>
+
+      <div class="project-status">
+
+        <span class="status-dot"></span>
+
+        Live
+
+      </div>
+
+    </div>
+
+
+    <div class="slide-area">
+
+
+      <!-- Slide 0 -->
+
+      <div class="slide active start-slide">
+
+        <i class="fas fa-hand-pointer"></i>
+
+        <h3>
+          Click to Explore
+        </h3>
+
+        <p>
+          Explore project details
+        </p>
+
+      </div>
+
+
+      <!-- Slide 1 -->
+
+      <div class="slide">
+
+        <img
+        src="attendxProject.PNG"
+        alt="Instagram Clone Project">
+
+      </div>
+
+
+      <!-- Slide 2 -->
+
+      <div class="slide">
+
+        <h2>
+          Instagram Clone
+        </h2>
+
+        <p>
+          A web-based Instagram clone project
+          developed to practice frontend development,
+          UI design and interactive web features.
+        </p>
+
+      </div>
+
+
+      <!-- Slide 3 -->
+
+      <div class="slide">
+
+        <div class="tools-title">
+          🛠 Tools Used
+        </div>
+
+        <div class="tools">
+
+          <div class="tool-badge">
+            HTML
+          </div>
+
+          <div class="tool-badge">
+            CSS
+          </div>
+
+          <div class="tool-badge">
+            JavaScript
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="project-info">
+
+      <h2>
+        Instagram Clone
+      </h2>
+
+      <p>
+        A web-based Instagram clone created
+        to practice frontend development and
+        interactive UI design.
+      </p>
+
+    </div>
+
+
+    <div class="project-footer">
+
+      <div class="slide-dots">
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+      </div>
+
+      <a
+      href="https://akil-2005.github.io/INSTAGRAM_CLONE/"
+      target="_blank"
+      class="live-btn"
+      onclick="event.stopPropagation()">
+
+        View Live Project
+
+        <i class="fas fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       PROJECT 2
+  ====================== -->
+
+  <div class="project-card"
+       onclick="nextSlide(1)">
+
+    <div class="project-header">
+
+      <div class="project-number">
+        PROJECT 02
+      </div>
+
+      <div class="project-status">
+
+        <span class="status-dot"></span>
+
+        Live
+
+      </div>
+
+    </div>
+
+
+    <div class="slide-area">
+
+
+      <div class="slide active start-slide">
+
+        <i class="fas fa-hand-pointer"></i>
+
+        <h3>
+          Click to Explore
+        </h3>
+
+        <p>
+          Explore project details
+        </p>
+
+      </div>
+
+
+      <div class="slide">
+
+        <img
+        src="project2.png"
+        alt="E-Commerce Project">
+
+      </div>
+
+
+      <div class="slide">
+
+        <h2>
+          E-Commerce
+        </h2>
+
+        <p>
+          An e-commerce website designed
+          to practice product presentation,
+          search functionality and frontend
+          web development.
+        </p>
+
+      </div>
+
+
+      <div class="slide">
+
+        <div class="tools-title">
+          🛠 Tools Used
+        </div>
+
+        <div class="tools">
+
+          <div class="tool-badge">
+            HTML
+          </div>
+
+          <div class="tool-badge">
+            CSS
+          </div>
+
+          <div class="tool-badge">
+            JavaScript
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="project-info">
+
+      <h2>
+        E-Commerce
+      </h2>
+
+      <p>
+        A responsive e-commerce website
+        developed for practicing modern
+        frontend web development.
+      </p>
+
+    </div>
+
+
+    <div class="project-footer">
+
+      <div class="slide-dots">
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+      </div>
+
+      <a
+      href="https://akil-2005.github.io/E_COMMERCE/"
+      target="_blank"
+      class="live-btn"
+      onclick="event.stopPropagation()">
+
+        View Live Project
+
+        <i class="fas fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- =====================
+       PROJECT 3
+  ====================== -->
+
+  <div class="project-card"
+       onclick="nextSlide(2)">
+
+    <div class="project-header">
+
+      <div class="project-number">
+        PROJECT 03
+      </div>
+
+      <div class="project-status">
+
+        <span class="status-dot"></span>
+
+        Live
+
+      </div>
+
+    </div>
+
+
+    <div class="slide-area">
+
+
+      <div class="slide active start-slide">
+
+        <i class="fas fa-hand-pointer"></i>
+
+        <h3>
+          Click to Explore
+        </h3>
+
+        <p>
+          Explore project details
+        </p>
+
+      </div>
+
+
+      <div class="slide">
+
+        <img
+        src="project3.png"
+        alt="Burmese Noodles Project">
+
+      </div>
+
+
+      <div class="slide">
+
+        <h2>
+          Burmese Noodles
+        </h2>
+
+        <p>
+          A food website project focused on
+          presenting Burmese noodle dishes
+          with a clean and user-friendly design.
+        </p>
+
+      </div>
+
+
+      <div class="slide">
+
+        <div class="tools-title">
+          🛠 Tools Used
+        </div>
+
+        <div class="tools">
+
+          <div class="tool-badge">
+            HTML
+          </div>
+
+          <div class="tool-badge">
+            CSS
+          </div>
+
+          <div class="tool-badge">
+            JavaScript
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="project-info">
+
+      <h2>
+        Burmese Noodles
+      </h2>
+
+      <p>
+        A responsive food website created
+        with focus on clean presentation
+        and user-friendly design.
+      </p>
+
+    </div>
+
+
+    <div class="project-footer">
+
+      <div class="slide-dots">
+
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+
+      </div>
+
+      <a
+      href="https://akil-2005.github.io/BURMESE_NOODLES/"
+      target="_blank"
+      class="live-btn"
+      onclick="event.stopPropagation()">
+
+        View Live Project
+
+        <i class="fas fa-arrow-up-right-from-square"></i>
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<script>
+
+/* =========================
+   SLIDE LOGIC
+========================= */
+
+const currentSlides = [0, 0, 0];
+
+const totalSlides = 4;
+
+
+function nextSlide(projectIndex) {
+
+  const card =
+    document.querySelectorAll('.project-card')[projectIndex];
+
+  const slides =
+    card.querySelectorAll('.slide');
+
+  const dots =
+    card.querySelectorAll('.dot');
+
+
+  /* Remove current slide */
+
+  slides[currentSlides[projectIndex]]
+    .classList.remove('active');
+
+  dots[currentSlides[projectIndex]]
+    .classList.remove('active');
+
+
+  /* Move to next */
+
+  currentSlides[projectIndex] =
+    (currentSlides[projectIndex] + 1)
+    % totalSlides;
+
+
+  /* Show next */
+
+  slides[currentSlides[projectIndex]]
+    .classList.add('active');
+
+  dots[currentSlides[projectIndex]]
+    .classList.add('active');
+
+}
+
+</script>
+
+</body>
+</html>
+```

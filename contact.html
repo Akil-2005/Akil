@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Akil</title>
+  <link rel="icon" type="image/png" href="Free Stock Photos, PNGs, Templates & Mockups _ rawpixel.jpg">
+
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: #f8fafc;
+      color: #334155;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .contact-box {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #0f172a;
+    }
+
+    .subtitle {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #64748b;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2563eb;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #0f172a;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    button:hover {
+      background: #2563eb;
+    }
+
+    #status {
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="contact-box">
+
+    <h1>Message Me</h1>
+    <p class="subtitle">
+      Have a question or want to connect? Send me a message.
+    </p>
+
+    <form id="contact-form">
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="from_name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="from_email" required>
+      </div>
+
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" required></textarea>
+      </div>
+
+      <button type="submit">
+        <i class="fas fa-paper-plane"></i>
+        Send Message
+      </button>
+
+    </form>
+
+    <p id="status"></p>
+
+    <a href="index.html" class="back">
+      ← Back to Portfolio
+    </a>
+
+  </div>
+
+  <!-- EmailJS -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script>
+
+    emailjs.init("aVua6nDK1dXgXrV4g");
+
+    document
+      .getElementById("contact-form")
+      .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        emailjs.sendForm(
+          "service_rpa3spi",
+          "template_bc6dol8",
+          this
+        )
+        .then(() => {
+
+          document.getElementById("status").innerText =
+            "Message sent successfully! ✅";
+
+          this.reset();
+
+        })
+        .catch((error) => {
+
+          console.log(error);
+
+          document.getElementById("status").innerText =
+            "Failed to send message ❌";
+
+        });
+
+      });
+
+  </script>
+
+</body>
+</html>
